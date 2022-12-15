@@ -5,6 +5,29 @@
 # A program that adds all of the numbers in an array and prints it back to the user
 
 
+def add_numbers_in_arrays(array):
+    # Adds all of the numbers in an array
+
+    sum = 0
+    for number in array:
+        sum += number
+
+    return sum
+
+
+def format_adding_array_text(array):
+    # Formats the sum text of an array
+
+    equation_text = ""
+    for number in range(0, len(array)):
+        if number == len(array) - 1:
+            equation_text += str(array[number]) + " = "
+        else:
+            equation_text += str(array[number]) + " + "
+
+    return equation_text
+
+
 def main():
     # Adds all of the numbers in an array and prints it back to the user
 
@@ -33,15 +56,8 @@ def main():
             number_array.append(number_value)
         except ValueError:
             print("\nYou did not enter a valid number.")
-    # Write the full equation and calculate the answer
-    final_answer = 0
-    full_equation_text = ""
-    for number in range(0, number_of_loops_integer):
-        if number == number_of_loops_integer - 1:
-            full_equation_text = full_equation_text + str(number_array[number]) + " = "
-        else:
-            full_equation_text = full_equation_text + str(number_array[number]) + " + "
-        final_answer = final_answer + number_array[number]
+    final_answer = add_numbers_in_arrays(number_array)
+    full_equation_text = format_adding_array_text(number_array)
     # Print the full equation and the final answer as a string
     print("\n" + full_equation_text + str(final_answer))
 
